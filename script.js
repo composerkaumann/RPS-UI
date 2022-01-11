@@ -1,91 +1,9 @@
 "use strict";
 
-/* This is a test file
-where I am testing various scripts. */
-
-// wait(ms); for delay
-function wait(ms) {
-  let start = new Date().getTime();
-  let end = start;
-  while (end < start + ms) {
-    end = new Date().getTime();
-  }
-}
-
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function arithmetic() {
-  clearArithm();
-  const nr1 = +prompt("First number!", "");
-  if (!isNaN(nr1)) {
-    document.getElementById("1st").innerHTML = nr1;
-  } else {
-    alert("You may enter numbers only!");
-    clearArithm();
-    return;
-  }
-  const nr2 = +prompt("Second number!", "");
-  if (!isNaN(nr2)) {
-    document.getElementById("2nd").innerHTML = nr2;
-  } else {
-    alert("You may enter numbers only!");
-    clearArithm();
-    return;
-  }
-  const result = nr1 ** nr2;
-  setTimeout(() => {
-    document.getElementById("total").innerHTML = result;
-  }, 667);
-}
-
-function clearArithm() {
-  document.getElementById("total").innerHTML = "_";
-  document.getElementById("1st").innerHTML = "_";
-  document.getElementById("2nd").innerHTML = "_";
-}
-
-async function cap1st() {
-  const string01 = prompt("Enter some txt", "");
-  if (string01 === null || string01 == "") {
-    document.getElementById("capFirstWrd").innerHTML = "_ _ _ _ _";
-    return;
-  } else {
-    await sleep(1000);
-    document.getElementById("capFirstWrd").innerHTML =
-      string01[0].toUpperCase() + string01.slice(1).toLowerCase();
-  }
-}
-
-async function testJoiningArr2Str() {
-  const string02 = prompt("Enter some txt", "");
-  if (string02 !== null && string02 !== "") {
-    const string03 = string02.toLowerCase();
-    const array02 = string03.split(" ");
-    for (var i = 0; i < array02.length; i++) {
-      array02[i] = array02[i].charAt(0).toUpperCase() + array02[i].slice(1);
-    }
-    const string04 = array02.join(" ");
-    await sleep(1000);
-    document.getElementById("capFirstAllWrds").innerHTML = string04;
-    await sleep(1000);
-    document.getElementById("capFirstAllWrds").innerHTML +=
-      "<h5>type: " + typeof string04 + "</h5>";
-  } else {
-    document.getElementById("capFirstAllWrds").innerHTML = "_ _ _ _ _";
-  }
-}
-
-function clearAll() {
-  clearArithm();
-  document.getElementById("capFirstWrd").innerHTML = "_ _ _ _ _";
-  document.getElementById("capFirstAllWrds").innerHTML = "_ _ _ _ _";
-  document.getElementById("RPSComputerChoice").innerHTML = "_ _ _ _ _";
-  document.getElementById("RPSuserChoice").innerHTML = "_ _ _ _ _";
-  document.getElementById("RPSsingleGame").innerHTML = "_ _ _ _ _";
-  document.getElementById("RPSFiveGame").innerHTML = "_ _ _ _ _";
-}
 // Random with crypto security between x and y.
 function computerPlay() {
   // document.getElementById("RPSsingleGame").innerHTML = "_ _ _ _ _";
@@ -111,7 +29,6 @@ function computerPlay() {
 
 function userInput() {
   // document.getElementById("RPSuserChoice").innerHTML = "_ _ _ _ _";
-
   let askUser = true;
   let userChoice;
   while (askUser === true) {
