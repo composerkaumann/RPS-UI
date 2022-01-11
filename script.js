@@ -6,7 +6,6 @@ function sleep(ms) {
 
 // Random with crypto security between x and y.
 function computerPlay() {
-  // document.getElementById("RPSsingleGame").innerHTML = "_ _ _ _ _";
   const cs = (x, y) =>
     (x +
       ((y - x + 1) * crypto.getRandomValues(new Uint32Array(1))[0]) / 2 ** 32) |
@@ -28,34 +27,30 @@ function computerPlay() {
 }
 
 function userInput() {
-  // document.getElementById("RPSuserChoice").innerHTML = "_ _ _ _ _";
   let askUser = true;
   let userChoice;
   while (askUser === true) {
     let input = prompt(`Enter "R" (rock), "P" (paper) or "S" (scissors)`, "");
     if (input === null || input == "") {
-      document.getElementById("RPSuserChoice").innerHTML = "_ _ _ _ _";
-      document.getElementById("RPSComputerChoice").innerHTML = "_ _ _ _ _";
-      document.getElementById("RPSsingleGame").innerHTML = "_ _ _ _ _";
       askUser = false;
       return 3;
     } else if (input.toUpperCase() == "R") {
       askUser = false;
       userChoice = 0;
       console.log("user choice " + userChoice);
-      document.getElementById("RPSuserChoice").innerHTML = "ROCK";
+      //         document.getElementById("RPSuserChoice").innerHTML = "ROCK";
       return userChoice;
     } else if (input.toUpperCase() == "P") {
       askUser = false;
       userChoice = 1;
       console.log("user choice " + userChoice);
-      document.getElementById("RPSuserChoice").innerHTML = "PAPER";
+      //         document.getElementById("RPSuserChoice").innerHTML = "PAPER";
       return userChoice;
     } else if (input.toUpperCase() == "S") {
       askUser = false;
       userChoice = 2;
       console.log("user choice " + userChoice);
-      document.getElementById("RPSuserChoice").innerHTML = "SCISSORS";
+      //         document.getElementById("RPSuserChoice").innerHTML = "SCISSORS";
       return userChoice;
     } else {
       alert(`Enter "R", "P" or "S"`);
@@ -63,22 +58,20 @@ function userInput() {
   }
 }
 function singleRPSgame() {
-  //  document.getElementById("RPSComputerChoice").innerHTML = "_ _ _ _ _";
-  // document.getElementById("RPSsingleGame").innerHTML = "_ _ _ _ _";
   const u = userInput();
   if (u !== 3) {
     const c = computerPlay();
     if (u === c) {
       console.log("draw");
-      document.getElementById("RPSsingleGame").innerHTML = "Draw";
+      //          document.getElementById("RPSsingleGame").innerHTML = "Draw";
       return 0;
     } else if (u == c + 1 || u == c - 2) {
       console.log("user wins");
-      document.getElementById("RPSsingleGame").innerHTML = "User wins";
+      //         document.getElementById("RPSsingleGame").innerHTML = "User wins";
       return 1;
     } else {
       console.log("computer wins");
-      document.getElementById("RPSsingleGame").innerHTML = "Computer wins";
+      //          document.getElementById("RPSsingleGame").innerHTML = "Computer wins";
       return 2;
     }
   } else {
@@ -87,8 +80,7 @@ function singleRPSgame() {
 }
 
 async function gameFiveRound() {
-  clearAll();
-  await sleep(500);
+  //              await sleep(500);
   let userGame = 0;
   let compGame = 0;
   let i = 0;
@@ -98,26 +90,20 @@ async function gameFiveRound() {
     switch (singleRPSgame()) {
       case 0:
         alert("5 game draw" + " " + userGame + " " + compGame);
-        document.getElementById(
-          "RPSFiveGame"
-        ).innerHTML = `User ${userGame} : Computer ${compGame}`;
-        await sleep(2000);
+        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
+        //        await sleep(2000);
         break;
       case 1:
         ++userGame;
         alert("5 game user win" + " " + userGame + " " + compGame);
-        document.getElementById(
-          "RPSFiveGame"
-        ).innerHTML = `User ${userGame} : Computer ${compGame}`;
-        await sleep(2000);
+        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
+        //        await sleep(2000);
         break;
       case 2:
         ++compGame;
         alert("5 game computer win" + " " + userGame + " " + compGame);
-        document.getElementById(
-          "RPSFiveGame"
-        ).innerHTML = `User ${userGame} : Computer ${compGame}`;
-        await sleep(2000);
+        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
+        //        await sleep(2000);
         break;
       case 3:
         abort = true;
