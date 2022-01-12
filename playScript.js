@@ -4,6 +4,21 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+document.addEventListener("keydown", function (event) {
+  if (!!document.getElementById("playBtn") && event.key === "p") {
+    buttonsWrap.removeChild(buttonPlay);
+    buttonsWrap.appendChild(button1);
+    buttonsWrap.appendChild(button2);
+    buttonsWrap.appendChild(button3);
+  }
+  if (!document.getElementById("playBtn") && event.key === "r") {
+  }
+  if (!document.getElementById("playBtn") && event.key === "p") {
+  }
+  if (!document.getElementById("playBtn") && event.key === "s") {
+  }
+});
+
 // Random with crypto security between x and y.
 function computerPlay() {
   const cs = (x, y) =>
@@ -124,9 +139,9 @@ async function gameFiveRound() {
   }
 }
 
-document.getElementById("button1").textContent = "(R)ock";
-document.getElementById("button2").textContent = "(P)aper";
-document.getElementById("button3").textContent = "(S)cissors";
-document.getElementById("titleMain").textContent = "Rock-Paper-Scissors";
+// document.getElementById("button1").textContent = "(R)ock";
+// document.getElementById("button2").textContent = "(P)aper";
+// document.getElementById("button3").textContent = "(S)cissors";
+
 document.getElementById("score").textContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";

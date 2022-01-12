@@ -10,22 +10,17 @@ body {
 }
 
 #container {
-  margin: -30px;
   background: hsl(247, 81%, 18%);
 }
 
 .header {
-  margin-bottom: -22px;
-  padding: 12px 42px;
   background: hsl(192, 100%, 17%);
 }
 
 .buttonsWrap {
-  padding: 12px 42px;
   background: hsl(30, 100%, 27%);
 }
 
 .score {
-  padding: 12px 42px;
   background: hsl(114, 48%, 17%);
 }
