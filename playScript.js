@@ -6,6 +6,10 @@ function sleep(ms) {
 switchButtons(0);
 
 document.addEventListener("keydown", function (event) {
+  //  macCmd = [17, 91, 93, 224];
+  if (event.ctrlKey || event.altKey || event.metaKey) {
+    return;
+  }
   if (!!document.getElementById("playBtn") && event.key === "n") {
     switchButtons(1);
   }
@@ -23,7 +27,7 @@ document.addEventListener("keydown", function (event) {
 async function switchButtons(toggle) {
   if (toggle === 1) {
     buttonsWrap.removeChild(buttonPlay);
-    await sleep(500);
+    await sleep(200);
     buttonsWrap.appendChild(button1);
     buttonsWrap.appendChild(button2);
     buttonsWrap.appendChild(button3);
@@ -38,7 +42,7 @@ async function switchButtons(toggle) {
     });
   } else if (toggle === 0) {
     removeChildNodes("buttonsWrap");
-    await sleep(500);
+    await sleep(200);
     buttonsWrap.appendChild(buttonPlay);
     document.getElementById("playBtn").textContent = "(N)ew game";
     document.getElementById("playBtn").addEventListener("click", function () {
@@ -89,46 +93,19 @@ function singleRPSgame(u) {
 
 async function gameUpTo5(result) {
   //              await sleep(500);
-  let userGame = 0;
-  let compGame = 0;
-  let i = 0;
-  let times = 5;
-  let abort = false;
-  for (; i < times && !abort; i++) {
-    /*    switch (singleRPSgame(u)) {
-      case 0:
-        alert("5 game draw" + " " + userGame + " " + compGame);
-        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
-        //        await sleep(2000);
-        break;
-      case 1:
-        ++userGame;
-        alert("5 game user win" + " " + userGame + " " + compGame);
-        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
-        //        await sleep(2000);
-        break;
-      case 2:
-        ++compGame;
-        alert("5 game computer win" + " " + userGame + " " + compGame);
-        //        document.getElementById("RPSFiveGame").innerHTML = `User ${userGame} : Computer ${compGame}`;
-        //        await sleep(2000);
-        break;
-      case 3:
-        abort = true;
-        break;
-    } */
-  }
-  if (i === times) {
-    //    await sleep(1000);
-    if (userGame === compGame) {
-      alert("Draw");
-    } else if (userGame > compGame) {
-      alert("User wins");
-    } else {
-      alert("Computer wins");
-    }
-  } else {
-    alert("Mission aborted");
+
+  switch (result) {
+    case 0:
+      alert("Draw" + " " + userGame + " " + compGame);
+      break;
+    case 1:
+      ++userGame;
+      alert("user win" + " " + userGame + " " + compGame);
+      break;
+    case 2:
+      ++compGame;
+      alert("5 game computer win" + " " + userGame + " " + compGame);
+      break;
   }
 }
 
