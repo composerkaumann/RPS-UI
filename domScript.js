@@ -31,7 +31,7 @@ const buttonPlay = document.createElement("button");
 buttonPlay.setAttribute("id", "playBtn");
 buttonPlay.setAttribute("class", "playBtn");
 // Appending play btn.
-buttonsWrap.appendChild(buttonPlay);
+//buttonsWrap.appendChild(buttonPlay);
 
 // Creating 3 buttons.
 const button1 = document.createElement("button");
@@ -51,7 +51,7 @@ button2.textContent = "(P)aper";
 const button3 = document.createElement("button");
 button3.setAttribute("id", "button3");
 button3.setAttribute("class", "button");
-button3.textContent = "(P)aper";
+button3.textContent = "(S)cissors";
 // Appending button1 to buttons wrap.
 //buttonsWrap.appendChild(button3);
 
@@ -69,4 +69,3 @@ document.body.appendChild(container);
 document.getElementById("titleMain").textContent = "Rock-Paper-Scissors";
 document.getElementById("titleSub").textContent =
   "random man against random computer";
-document.getElementById("playBtn").textContent = "(P)lay";
