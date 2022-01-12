@@ -20,6 +20,19 @@ container.appendChild(header);
 const buttonsWrap = document.createElement("div");
 buttonsWrap.setAttribute("id", "buttonsWrap");
 buttonsWrap.setAttribute("class", "buttonsWrap");
+// Creating 3 buttons.
+const button1 = document.createElement("button");
+button1.setAttribute("id", "button1");
+button1.setAttribute("class", "button");
+// Appending button1 to buttons wrap.
+buttonsWrap.appendChild(button1);
+//
+const button2 = document.createElement("button");
+button2.setAttribute("id", "button2");
+button2.setAttribute("class", "button");
+// Appending button1 to buttons wrap.
+buttonsWrap.appendChild(button2);
+
 // Aooending buttons wrap to comtainer DIV.
 container.appendChild(buttonsWrap);
 // Creating a wrap DIV for results / score.
@@ -30,3 +43,10 @@ score.setAttribute("class", "score");
 container.appendChild(score);
 // Appending the main container to the body tag.
 document.body.appendChild(container);
+
+//
+const button3 = document.createElement("button");
+button3.setAttribute("id", "button3");
+button3.setAttribute("class", "button");
+// Appending button1 to buttons wrap.
+buttonsWrap.appendChild(button3);
