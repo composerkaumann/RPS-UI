@@ -12,16 +12,27 @@ header.setAttribute("class", "header");
 const headerH1 = document.createElement("h1");
 headerH1.setAttribute("id", "titleMain");
 headerH1.setAttribute("class", "title");
+headerH1.textContent = "Rock-Paper-Scissors";
 //Appending header main title to header DIV.
 header.appendChild(headerH1);
 // Appending the header container to the container DIV.
 const headerH3 = document.createElement("h3");
 headerH3.setAttribute("id", "titleSub");
 headerH3.setAttribute("class", "title");
+headerH3.textContent = "random man against random computer";
+
 //Appending header main title to header DIV.
 header.appendChild(headerH3);
 // Appending the header container to the container DIV.
 container.appendChild(header);
+// Create div Between header and buttons
+const instruct = document.createElement("div");
+instruct.setAttribute("id", "instruct");
+instruct.setAttribute("class", "instruct");
+instruct.textContent =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+container.appendChild(instruct);
 // Creating DIV for buttons,
 const buttonsWrap = document.createElement("div");
 buttonsWrap.setAttribute("id", "buttonsWrap");
@@ -30,6 +41,10 @@ buttonsWrap.setAttribute("class", "buttonsWrap");
 const buttonPlay = document.createElement("button");
 buttonPlay.setAttribute("id", "playBtn");
 buttonPlay.setAttribute("class", "playBtn");
+buttonPlay.textContent = "[N]ew game";
+buttonPlay.addEventListener("click", function () {
+  playButtons();
+});
 // Appending play btn.
 //buttonsWrap.appendChild(buttonPlay);
 
@@ -37,7 +52,7 @@ buttonPlay.setAttribute("class", "playBtn");
 const button1 = document.createElement("button");
 button1.setAttribute("id", "button1");
 button1.setAttribute("class", "button");
-button1.textContent = "(R)ock";
+button1.textContent = "[R]ock";
 button1.addEventListener("click", function () {
   singleRPSgame(0);
 });
@@ -47,7 +62,7 @@ button1.addEventListener("click", function () {
 const button2 = document.createElement("button");
 button2.setAttribute("id", "button2");
 button2.setAttribute("class", "button");
-button2.textContent = "(P)aper";
+button2.textContent = "[P]aper";
 button2.addEventListener("click", function () {
   singleRPSgame(1);
 });
@@ -57,7 +72,7 @@ button2.addEventListener("click", function () {
 const button3 = document.createElement("button");
 button3.setAttribute("id", "button3");
 button3.setAttribute("class", "button");
-button3.textContent = "(S)cissors";
+button3.textContent = "[S]cissors";
 button3.addEventListener("click", function () {
   singleRPSgame(2);
 });
@@ -71,11 +86,10 @@ container.appendChild(buttonsWrap);
 const score = document.createElement("div");
 score.setAttribute("id", "score");
 score.setAttribute("class", "score");
+score.textContent =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
 // Appending score DIV to the container DIV.
 container.appendChild(score);
 // Appending the main container to the body tag.
 document.body.appendChild(container);
-// Text into header H1.
-document.getElementById("titleMain").textContent = "Rock-Paper-Scissors";
-document.getElementById("titleSub").textContent =
-  "random man against random computer";

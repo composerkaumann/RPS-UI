@@ -1,6 +1,6 @@
 "use strict";
 
-// Global variables for keeping sore, visible to all functions
+// Global variables for keeping sore, visible to all functions (task: put inside a function)
 let userGame;
 let compGame;
 
@@ -11,7 +11,7 @@ function sleep(ms) {
 
 // Key event listeners that work only when corresponding button ID is present.
 document.addEventListener("keydown", function (event) {
-  //  macCmd = [17, 91, 93, 224];
+  // Check, if ctrl || alt || Mac cmd key is pressed.
   if (event.ctrlKey || event.altKey || event.metaKey) {
     return;
   }
@@ -29,7 +29,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Remove all chid nodes of node - function
+// Remove all chid nodes of a node - function
 function removeChildNodes(n) {
   const myNode = document.getElementById(n);
   while (myNode.firstChild) {
@@ -43,10 +43,6 @@ function initScreen() {
   compGame = 0;
   removeChildNodes("buttonsWrap");
   buttonsWrap.appendChild(buttonPlay);
-  document.getElementById("playBtn").textContent = "(N)ew game";
-  document.getElementById("playBtn").addEventListener("click", function () {
-    playButtons();
-  });
 }
 
 // This is starting line for action
@@ -94,12 +90,11 @@ function singleRPSgame(u) {
     console.log("user " + userGame + " : " + compGame + " computer");
   }
   if (userGame === 5 || compGame === 5) {
-    console.log("läbi");
+    console.log(
+      "Tournament ended," + " user " + userGame + " : " + compGame + " computer"
+    );
     initScreen();
   } else {
     playButtons();
   }
 }
-
-document.getElementById("score").textContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
