@@ -38,6 +38,9 @@ const button1 = document.createElement("button");
 button1.setAttribute("id", "button1");
 button1.setAttribute("class", "button");
 button1.textContent = "(R)ock";
+button1.addEventListener("click", function () {
+  singleRPSgame(0);
+});
 // Appending button1 to buttons wrap.
 //buttonsWrap.appendChild(button1);
 //
@@ -45,6 +48,9 @@ const button2 = document.createElement("button");
 button2.setAttribute("id", "button2");
 button2.setAttribute("class", "button");
 button2.textContent = "(P)aper";
+button2.addEventListener("click", function () {
+  singleRPSgame(1);
+});
 // Appending button1 to buttons wrap.
 //buttonsWrap.appendChild(button2);
 //
@@ -52,6 +58,10 @@ const button3 = document.createElement("button");
 button3.setAttribute("id", "button3");
 button3.setAttribute("class", "button");
 button3.textContent = "(S)cissors";
+button3.addEventListener("click", function () {
+  singleRPSgame(2);
+});
+
 // Appending button1 to buttons wrap.
 //buttonsWrap.appendChild(button3);
 

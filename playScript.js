@@ -1,55 +1,33 @@
 "use strict";
 
+// Global variables for keeping sore, visible to all functions
+let userGame;
+let compGame;
+
+// Timeout function for async functions (await sleep(ms))
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-switchButtons(0);
 
+// Key event listeners that work only when corresponding button ID is present.
 document.addEventListener("keydown", function (event) {
   //  macCmd = [17, 91, 93, 224];
   if (event.ctrlKey || event.altKey || event.metaKey) {
     return;
   }
   if (!!document.getElementById("playBtn") && event.key === "n") {
-    switchButtons(1);
+    playButtons();
   }
-  if (!document.getElementById("playBtn") && event.key === "r") {
+  if (!!document.getElementById("button1") && event.key === "r") {
     singleRPSgame(0);
   }
-  if (!document.getElementById("playBtn") && event.key === "p") {
+  if (!!document.getElementById("button1") && event.key === "p") {
     singleRPSgame(1);
   }
-  if (!document.getElementById("playBtn") && event.key === "s") {
+  if (!!document.getElementById("button1") && event.key === "s") {
     singleRPSgame(2);
   }
 });
-// Toggle Nex Game <> RPS buttons
-async function switchButtons(toggle) {
-  if (toggle === 1) {
-    buttonsWrap.removeChild(buttonPlay);
-    await sleep(200);
-    buttonsWrap.appendChild(button1);
-    buttonsWrap.appendChild(button2);
-    buttonsWrap.appendChild(button3);
-    document.getElementById("button1").addEventListener("click", function () {
-      singleRPSgame(0);
-    });
-    document.getElementById("button2").addEventListener("click", function () {
-      singleRPSgame(1);
-    });
-    document.getElementById("button3").addEventListener("click", function () {
-      singleRPSgame(2);
-    });
-  } else if (toggle === 0) {
-    removeChildNodes("buttonsWrap");
-    await sleep(200);
-    buttonsWrap.appendChild(buttonPlay);
-    document.getElementById("playBtn").textContent = "(N)ew game";
-    document.getElementById("playBtn").addEventListener("click", function () {
-      switchButtons(1);
-    });
-  }
-}
 
 // Remove all chid nodes function
 function removeChildNodes(n) {
@@ -58,6 +36,37 @@ function removeChildNodes(n) {
     myNode.removeChild(myNode.lastChild);
   }
 }
+
+// Startup sceen with "New game" button.
+function initScreen() {
+  userGame = 0;
+  compGame = 0;
+  removeChildNodes("buttonsWrap");
+  buttonsWrap.appendChild(buttonPlay);
+  document.getElementById("playBtn").textContent = "(N)ew game";
+  document.getElementById("playBtn").addEventListener("click", function () {
+    playButtons();
+  });
+}
+
+// This is starting line for action
+initScreen();
+
+// User input function for single game.
+function playButtons() {
+  removeChildNodes("buttonsWrap");
+  buttonsWrap.appendChild(button1);
+  buttonsWrap.appendChild(button2);
+  buttonsWrap.appendChild(button3);
+}
+
+function playButtons() {
+  removeChildNodes("buttonsWrap");
+  buttonsWrap.appendChild(button1);
+  buttonsWrap.appendChild(button2);
+  buttonsWrap.appendChild(button3);
+}
+
 // Random with crypto security between x and y.
 function computerPlay() {
   const cs = (x, y) =>
@@ -68,44 +77,34 @@ function computerPlay() {
   console.log("computer choice " + computerChoice);
   switch (computerChoice) {
     case 0:
-      console.log();
       break;
     case 1:
-      console.log();
       break;
     case 2:
-      console.log();
       break;
   }
   return computerChoice;
 }
 
+// The actual game that gets user choice, calls for computer game, evaluates.
 function singleRPSgame(u) {
+  console.log("user choice " + u);
   const c = computerPlay();
   if (u === c) {
-    gameUpTo5(0);
+    console.log(userGame + " user : computer " + compGame);
+    return;
   } else if (u == c + 1 || u == c - 2) {
-    gameUpTo5(1);
+    ++userGame;
+    console.log(userGame + " user : computer " + compGame);
   } else {
-    gameUpTo5(2);
+    ++compGame;
+    console.log(userGame + " user : computer " + compGame);
   }
-}
-
-async function gameUpTo5(result) {
-  //              await sleep(500);
-
-  switch (result) {
-    case 0:
-      alert("Draw" + " " + userGame + " " + compGame);
-      break;
-    case 1:
-      ++userGame;
-      alert("user win" + " " + userGame + " " + compGame);
-      break;
-    case 2:
-      ++compGame;
-      alert("5 game computer win" + " " + userGame + " " + compGame);
-      break;
+  if (userGame === 5 || compGame === 5) {
+    console.log("läbi");
+    initScreen();
+  } else {
+    playButtons();
   }
 }
 
