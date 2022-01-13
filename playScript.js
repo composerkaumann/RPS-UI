@@ -38,10 +38,11 @@ function removeChildNodes(n) {
 }
 
 // Startup sceen with "New game" button.
-function initScreen() {
+async function initScreen() {
   userGame = 0;
   compGame = 0;
   removeChildNodes("buttonsWrap");
+  await sleep(500);
   buttonsWrap.appendChild(buttonPlay);
 }
 
@@ -49,15 +50,16 @@ function initScreen() {
 initScreen();
 
 // User input buttons for single game.
-function playButtons() {
+async function playButtons() {
   removeChildNodes("buttonsWrap");
+  await sleep(500);
   buttonsWrap.appendChild(button1);
   buttonsWrap.appendChild(button2);
   buttonsWrap.appendChild(button3);
 }
 
 // Random with crypto security between x and y.
-function computerPlay() {
+async function computerPlay() {
   const cs = (x, y) =>
     (x +
       ((y - x + 1) * crypto.getRandomValues(new Uint32Array(1))[0]) / 2 ** 32) |
@@ -76,23 +78,28 @@ function computerPlay() {
 }
 
 // The actual game that gets user choice, calls for computer game, evaluates.
-function singleRPSgame(u) {
+async function singleRPSgame(u) {
   console.log("user choice " + u);
-  const c = computerPlay();
+  await sleep(500);
+  const c = await computerPlay();
+  await sleep(500);
   if (u === c) {
-    console.log("user " + userGame + " : " + compGame + " computer");
+    console.log("DRAW: user " + userGame + " : " + compGame + " computer");
     return;
   } else if (u == c + 1 || u == c - 2) {
     ++userGame;
-    console.log("user " + userGame + " : " + compGame + " computer");
+    console.log("USER WINS: user " + userGame + " : " + compGame + " computer");
   } else {
     ++compGame;
-    console.log("user " + userGame + " : " + compGame + " computer");
+    console.log(
+      "COMPUTER WINS: user " + userGame + " : " + compGame + " computer"
+    );
   }
   if (userGame === 5 || compGame === 5) {
     console.log(
       "Tournament ended," + " user " + userGame + " : " + compGame + " computer"
     );
+    await sleep(500);
     initScreen();
   } else {
     playButtons();

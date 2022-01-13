@@ -24,6 +24,11 @@ body {
 .header {
   margin: -20px 0px;
   background: hsl(192, 100%, 17%);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: -12px;
 }
 
 .instruct {
@@ -32,6 +37,9 @@ body {
 
 .buttonsWrap {
   background: hsl(30, 100%, 27%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .score {
