@@ -29,7 +29,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Remove all chid nodes function
+// Remove all chid nodes of node - function
 function removeChildNodes(n) {
   const myNode = document.getElementById(n);
   while (myNode.firstChild) {
@@ -52,14 +52,7 @@ function initScreen() {
 // This is starting line for action
 initScreen();
 
-// User input function for single game.
-function playButtons() {
-  removeChildNodes("buttonsWrap");
-  buttonsWrap.appendChild(button1);
-  buttonsWrap.appendChild(button2);
-  buttonsWrap.appendChild(button3);
-}
-
+// User input buttons for single game.
 function playButtons() {
   removeChildNodes("buttonsWrap");
   buttonsWrap.appendChild(button1);
@@ -91,14 +84,14 @@ function singleRPSgame(u) {
   console.log("user choice " + u);
   const c = computerPlay();
   if (u === c) {
-    console.log(userGame + " user : computer " + compGame);
+    console.log("user " + userGame + " : " + compGame + " computer");
     return;
   } else if (u == c + 1 || u == c - 2) {
     ++userGame;
-    console.log(userGame + " user : computer " + compGame);
+    console.log("user " + userGame + " : " + compGame + " computer");
   } else {
     ++compGame;
-    console.log(userGame + " user : computer " + compGame);
+    console.log("user " + userGame + " : " + compGame + " computer");
   }
   if (userGame === 5 || compGame === 5) {
     console.log("läbi");
