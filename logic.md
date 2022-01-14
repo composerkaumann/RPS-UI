@@ -29,3 +29,15 @@ _input received_
    If yes- announce tournament winner. OK, go to (1) Start screen,
 
 9. If NO- go to "Wait user input" (2)
+
+body
+background: hsl(333, 61%, 24%);
+
+.header
+background: hsl(192, 100%, 17%);
+
+.buttonsWrap
+background: hsl(30, 100%, 27%);
+
+.comp
+background: hsl(176, 43%, 25%);

@@ -36,6 +36,36 @@ instructH2.setAttribute("class", "instrH2");
 instruct.appendChild(instructH2);
 
 container.appendChild(instruct);
+
+// Creating a wrap DIV for computer.
+const comp = document.createElement("div");
+comp.setAttribute("id", "comp");
+comp.setAttribute("class", "comp");
+container.appendChild(comp);
+//
+const score = document.createElement("div");
+score.setAttribute("id", "score");
+score.setAttribute("class", "score");
+//
+const standing = document.createElement("h1");
+standing.setAttribute("id", "standing");
+standing.setAttribute("class", "standing");
+score.appendChild(standing);
+//
+const scoreAnnounce = document.createElement("h3");
+scoreAnnounce.setAttribute("id", "announce");
+scoreAnnounce.setAttribute("class", "announce");
+score.appendChild(scoreAnnounce);
+//
+const buttonNext = document.createElement("button");
+buttonNext.setAttribute("id", "playBtn");
+buttonNext.setAttribute("class", "nextBtn");
+buttonNext.textContent = "[N]ext round";
+buttonNext.addEventListener("click", function () {
+  playButtons();
+});
+//
+container.appendChild(score);
 // Creating DIV for buttons,
 const buttonsWrap = document.createElement("div");
 buttonsWrap.setAttribute("id", "buttonsWrap");
@@ -75,34 +105,5 @@ button3.addEventListener("click", function () {
 });
 // Aooending buttons wrap to comtainer DIV.
 container.appendChild(buttonsWrap);
-// Creating a wrap DIV for computer.
-const comp = document.createElement("div");
-comp.setAttribute("id", "comp");
-comp.setAttribute("class", "comp");
-container.appendChild(comp);
-//
-const score = document.createElement("div");
-score.setAttribute("id", "score");
-score.setAttribute("class", "score");
-//
-const standing = document.createElement("h1");
-standing.setAttribute("id", "standing");
-standing.setAttribute("class", "standing");
-score.appendChild(standing);
-//
-const scoreAnnounce = document.createElement("h3");
-scoreAnnounce.setAttribute("id", "announce");
-scoreAnnounce.setAttribute("class", "announce");
-score.appendChild(scoreAnnounce);
-//
-const buttonNext = document.createElement("button");
-buttonNext.setAttribute("id", "playBtn");
-buttonNext.setAttribute("class", "nextBtn");
-buttonNext.textContent = "[N]ext round";
-buttonNext.addEventListener("click", function () {
-  playButtons();
-});
-//
-container.appendChild(score);
 // Appending the main container to the body tag.
 document.body.appendChild(container);

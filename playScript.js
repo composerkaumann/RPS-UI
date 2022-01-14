@@ -47,7 +47,7 @@ async function initScreen() {
   document.getElementById("standing").textContent = "";
   await sleep(500);
   document.getElementById("instrH2").textContent =
-    'Press "New game" or key in [brackets] to start a 5-round tournament.';
+    'Press "New tournament" or key in [brackets] to start a 5-round tournament.';
   removeChildNodes("buttonsWrap");
   await sleep(500);
   buttonsWrap.appendChild(buttonPlay);
@@ -132,10 +132,12 @@ async function singleRPSgame(u) {
     ).textContent = `Computer wins this round, ${compChoice} beats ${userChoice}`;
   }
   if (userGame === 5 || compGame === 5) {
-    console.log(
+    document.getElementById(
+      "standing"
+    ).textContent = `USER ${userGame} : ${compGame} COMPUTER`;
+    alert(
       "Tournament ended," + " user " + userGame + " : " + compGame + " computer"
     );
-    await sleep(500);
     initScreen();
   } else {
     afterRound();

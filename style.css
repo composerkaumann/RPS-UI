@@ -44,7 +44,7 @@ button {
   transition: all 0.1s ease;
   text-align: center;
   color: hsl(179, 100%, 92%);
-  background: hsla(71, 100%, 33%, 0.33);
+  background: hsla(238, 100%, 88%, 0.2);
 }
 
 button:hover {
@@ -73,9 +73,16 @@ h1 {
 }
 
 .buttonsWrap {
-  background: hsl(30, 100%, 27%);
   display: flex;
-  flex: 0 1 30%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.score {
+  background: hsl(30, 100%, 27%);
+  flex-direction: column;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
