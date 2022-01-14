@@ -139,12 +139,12 @@ async function singleRPSgame(u) {
     ++userGame;
     document.getElementById(
       "announce"
-    ).textContent = `Human won this round, ${userChoice} ${verb} ${compChoice}`;
+    ).textContent = `Human won this round, ${userChoice} ${verb} ${compChoice}.`;
   } else {
     ++compGame;
     document.getElementById(
       "announce"
-    ).textContent = `Computer won this round, ${compChoice} ${verb} ${userChoice}`;
+    ).textContent = `Computer won this round, ${compChoice} ${verb} ${userChoice}.`;
   }
   if (userGame === 5 || compGame === 5) {
     const winner = userGame > compGame ? "Human" : "Computer";

@@ -28,7 +28,9 @@ body {
   margin: -20px 0px;
   background: hsl(192, 100%, 17%);
   height: 120px;
+  min-height: fit-content;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -45,6 +47,8 @@ button {
   text-align: center;
   color: hsl(179, 100%, 92%);
   background: hsla(238, 100%, 88%, 0.2);
+  width: 15vw;
+  min-width: max-content;
 }
 
 .think {
