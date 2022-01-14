@@ -24,11 +24,10 @@ const instruct = document.createElement("div");
 instruct.setAttribute("class", "instruct");
 const instructH2 = document.createElement("h2");
 instructH2.setAttribute("id", "instrH2");
-
+//
 instruct.appendChild(instructH2);
-
+//
 container.appendChild(instruct);
-
 // Creating a wrap DIV for computer.
 const comp = document.createElement("div");
 comp.setAttribute("id", "comp");
