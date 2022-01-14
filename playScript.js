@@ -114,7 +114,7 @@ async function computerPlay() {
 async function afterRound() {
   document.getElementById(
     "standing"
-  ).textContent = `USER ${userGame} : ${compGame} COMPUTER`;
+  ).textContent = `HUMAN ${userGame} : ${compGame} COMPUTER`;
   buttonsWrap.appendChild(buttonPlay);
   document.getElementById("playBtn").textContent = "[N]ext round";
 }

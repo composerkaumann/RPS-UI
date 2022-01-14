@@ -60,6 +60,7 @@ buttonPlay.addEventListener("click", function () {
 
 // Creating 3 buttons.
 const button1 = document.createElement("button");
+button1.setAttribute("id", "button1");
 button1.textContent = "[R]ock";
 button1.addEventListener("click", function () {
   singleRPSgame(0);
