@@ -47,6 +47,10 @@ button {
   background: hsla(238, 100%, 88%, 0.2);
 }
 
+.think {
+  color: hsl(29, 100%, 67%);
+}
+
 button:hover {
   transform: scale(1.2);
   border: 0.5rem solid hsl(45, 100%, 64%);

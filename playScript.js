@@ -9,7 +9,7 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Key event listeners that work only when corresponding button ID is present.
+// Key event listeners that work only when corresponding button ID is present..
 document.addEventListener("keydown", function (event) {
   // Check, if ctrl || alt || Mac cmd key is pressed.
   if (event.ctrlKey || event.altKey || event.metaKey) {
@@ -36,6 +36,18 @@ function removeChildNodes(n) {
     myNode.removeChild(myNode.lastChild);
   }
 }
+
+// Makes all elements with certain class blinl
+function blinkIt() {
+  const blinks = document.getElementsByClassName("think");
+  for (let i = 0, l = blinks.length; i < l; i++) {
+    const blink = blinks[i];
+    const visiblity = blink.style.visibility;
+    blink.style.visibility = visiblity == "visible" ? "hidden" : "visible";
+  }
+}
+//Sets blink interval
+setInterval(blinkIt, 333);
 
 // Startup sceen with "New game" button.
 async function initScreen() {
@@ -71,14 +83,16 @@ async function playButtons() {
 
 // Random with crypto security between x and y.
 async function computerPlay() {
+  // comp.classList.add("think");
   document.getElementById("comp").innerHTML =
-    "<h2>Wait. A random computer is computing random.</h2>";
-  await sleep(2500);
+    "<h2 class = 'think'>Wait. A random computer is computing random.</h2>";
+  await sleep(3000);
   const cs = (x, y) =>
     (x +
       ((y - x + 1) * crypto.getRandomValues(new Uint32Array(1))[0]) / 2 ** 32) |
     0;
   const computerChoice = cs(0, 2);
+  // comp.classList.remove("think");
   switch (computerChoice) {
     case 0:
       document.getElementById("comp").innerHTML =
@@ -124,18 +138,19 @@ async function singleRPSgame(u) {
     ++userGame;
     document.getElementById(
       "announce"
-    ).textContent = `Human wins this round, ${userChoice} beats ${compChoice}`;
+    ).textContent = `Human won this round, ${userChoice} beats ${compChoice}`;
   } else {
     ++compGame;
     document.getElementById(
       "announce"
-    ).textContent = `Computer wins this round, ${compChoice} beats ${userChoice}`;
+    ).textContent = `Computer won this round, ${compChoice} beats ${userChoice}`;
   }
   if (userGame === 5 || compGame === 5) {
     const winner = userGame > compGame ? "Human" : "Computer";
     document.getElementById(
       "standing"
     ).textContent = `HUMAN ${userGame} : ${compGame} COMPUTER`;
+    await sleep(2000);
     alert(
       `The tournament has ended.\n\n${winner} won.\n\nSCORE\nHuman ` +
         userGame +
