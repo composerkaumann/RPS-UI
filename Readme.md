@@ -12,3 +12,8 @@ https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/rev
 - All buttons should also be accessible from keyboard: create the code and conditions when the specific key should work. Keys should not work when ctrl, alt or cmd are held on PC or MAC.
 - Try to use different kinds of loops, cases, logical operators.
 - Keep your code tidy (failed...).
+
+## I tried not to
+
+- Waste time on editing images and putting them in the project. Next time...
+- Get too complicated- this was very hard because my skills aren't good but one idea leads to another.
