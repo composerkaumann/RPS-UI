@@ -129,6 +129,7 @@ async function singleRPSgame(u) {
   await sleep(500);
   const c = await computerPlay();
   const compChoice = c === 0 ? "rock" : c === 1 ? "paper" : "scissors";
+  const verb = (u === 2 && c === 1) || (c === 2 && u === 1) ? "beat" : "beats";
   await sleep(500);
   if (u === c) {
     document.getElementById(
@@ -138,12 +139,12 @@ async function singleRPSgame(u) {
     ++userGame;
     document.getElementById(
       "announce"
-    ).textContent = `Human won this round, ${userChoice} beats ${compChoice}`;
+    ).textContent = `Human won this round, ${userChoice} ${verb} ${compChoice}`;
   } else {
     ++compGame;
     document.getElementById(
       "announce"
-    ).textContent = `Computer won this round, ${compChoice} beats ${userChoice}`;
+    ).textContent = `Computer won this round, ${compChoice} ${verb} ${userChoice}`;
   }
   if (userGame === 5 || compGame === 5) {
     const winner = userGame > compGame ? "Human" : "Computer";
