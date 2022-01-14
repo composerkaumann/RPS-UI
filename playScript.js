@@ -97,15 +97,15 @@ async function computerPlay() {
   switch (computerChoice) {
     case 0:
       document.getElementById("comp").innerHTML =
-        "<h2>Random computer found rock.</h2>";
+        "<h2>Computer found rock.</h2>";
       break;
     case 1:
       document.getElementById("comp").innerHTML =
-        "<h2>Random computer found paper.</h2>";
+        "<h2>Computer found paper.</h2>";
       break;
     case 2:
       document.getElementById("comp").innerHTML =
-        "<h2>Random computer found scissors.</h2>";
+        "<h2>Computer found scissors.</h2>";
       break;
   }
   return computerChoice;
