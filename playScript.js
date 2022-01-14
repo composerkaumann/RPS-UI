@@ -111,7 +111,7 @@ async function singleRPSgame(u) {
   removeChildNodes("buttonsWrap");
   document.getElementById(
     "instrH2"
-  ).textContent = `You selected ${userChoice}.`;
+  ).textContent = `A random human selected ${userChoice}.`;
   await sleep(500);
   const c = await computerPlay();
   const compChoice = c === 0 ? "rock" : c === 1 ? "paper" : "scissors";
@@ -124,7 +124,7 @@ async function singleRPSgame(u) {
     ++userGame;
     document.getElementById(
       "announce"
-    ).textContent = `User wins this round, ${userChoice} beats ${compChoice}`;
+    ).textContent = `Human wins this round, ${userChoice} beats ${compChoice}`;
   } else {
     ++compGame;
     document.getElementById(
@@ -132,11 +132,16 @@ async function singleRPSgame(u) {
     ).textContent = `Computer wins this round, ${compChoice} beats ${userChoice}`;
   }
   if (userGame === 5 || compGame === 5) {
+    const winner = userGame > compGame ? "Human" : "Computer";
     document.getElementById(
       "standing"
-    ).textContent = `USER ${userGame} : ${compGame} COMPUTER`;
+    ).textContent = `HUMAN ${userGame} : ${compGame} COMPUTER`;
     alert(
-      "Tournament ended," + " user " + userGame + " : " + compGame + " computer"
+      `The tournament has ended.\n\n${winner} won.\n\nSCORE\nHuman ` +
+        userGame +
+        " : " +
+        compGame +
+        " Computer"
     );
     initScreen();
   } else {

@@ -19,7 +19,7 @@ header.appendChild(headerH1);
 const headerH3 = document.createElement("h3");
 headerH3.setAttribute("id", "titleSub");
 headerH3.setAttribute("class", "title");
-headerH3.textContent = "random man against random computer";
+headerH3.textContent = "random human against random computer";
 
 //Appending header main title to header DIV.
 header.appendChild(headerH3);
