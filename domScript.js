@@ -48,8 +48,6 @@ buttonPlay.textContent = "[N]ew tournament";
 buttonPlay.addEventListener("click", function () {
   playButtons();
 });
-// Appending play btn.
-//buttonsWrap.appendChild(buttonPlay);
 
 // Creating 3 buttons.
 const button1 = document.createElement("button");
@@ -59,8 +57,6 @@ button1.textContent = "[R]ock";
 button1.addEventListener("click", function () {
   singleRPSgame(0);
 });
-// Appending button1 to buttons wrap.
-//buttonsWrap.appendChild(button1);
 //
 const button2 = document.createElement("button");
 button2.setAttribute("id", "button2");
@@ -69,8 +65,6 @@ button2.textContent = "[P]aper";
 button2.addEventListener("click", function () {
   singleRPSgame(1);
 });
-// Appending button1 to buttons wrap.
-//buttonsWrap.appendChild(button2);
 //
 const button3 = document.createElement("button");
 button3.setAttribute("id", "button3");
@@ -79,18 +73,36 @@ button3.textContent = "[S]cissors";
 button3.addEventListener("click", function () {
   singleRPSgame(2);
 });
-
-// Appending button1 to buttons wrap.
-//buttonsWrap.appendChild(button3);
-
 // Aooending buttons wrap to comtainer DIV.
 container.appendChild(buttonsWrap);
-// Creating a wrap DIV for results / score.
+// Creating a wrap DIV for computer.
+const comp = document.createElement("div");
+comp.setAttribute("id", "comp");
+comp.setAttribute("class", "comp");
+container.appendChild(comp);
+//
 const score = document.createElement("div");
 score.setAttribute("id", "score");
 score.setAttribute("class", "score");
-
-// Appending score DIV to the container DIV.
+//
+const standing = document.createElement("h1");
+standing.setAttribute("id", "standing");
+standing.setAttribute("class", "standing");
+score.appendChild(standing);
+//
+const scoreAnnounce = document.createElement("h3");
+scoreAnnounce.setAttribute("id", "announce");
+scoreAnnounce.setAttribute("class", "announce");
+score.appendChild(scoreAnnounce);
+//
+const buttonNext = document.createElement("button");
+buttonNext.setAttribute("id", "playBtn");
+buttonNext.setAttribute("class", "nextBtn");
+buttonNext.textContent = "[N]ext round";
+buttonNext.addEventListener("click", function () {
+  playButtons();
+});
+//
 container.appendChild(score);
 // Appending the main container to the body tag.
 document.body.appendChild(container);

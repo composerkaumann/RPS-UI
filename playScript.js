@@ -41,6 +41,11 @@ function removeChildNodes(n) {
 async function initScreen() {
   userGame = 0;
   compGame = 0;
+  removeChildNodes("buttonsWrap");
+  document.getElementById("comp").textContent = "";
+  document.getElementById("announce").textContent = "";
+  document.getElementById("standing").textContent = "";
+  await sleep(500);
   document.getElementById("instrH2").textContent =
     'Press "New game" or key in [brackets] to start a 5-round tournament.';
   removeChildNodes("buttonsWrap");
@@ -53,6 +58,8 @@ initScreen();
 
 // User input buttons for single game.
 async function playButtons() {
+  document.getElementById("comp").textContent = "";
+  document.getElementById("announce").textContent = "";
   document.getElementById("instrH2").textContent =
     "Press a button or a key in [brackets] to choose your weapon.";
   removeChildNodes("buttonsWrap");
@@ -64,8 +71,8 @@ async function playButtons() {
 
 // Random with crypto security between x and y.
 async function computerPlay() {
-  document.getElementById("score").innerHTML =
-    "<br /><h2>Wait. A random computer is computing random.</h2>";
+  document.getElementById("comp").innerHTML =
+    "<h2>Wait. A random computer is computing random.</h2>";
   await sleep(2500);
   const cs = (x, y) =>
     (x +
@@ -74,43 +81,55 @@ async function computerPlay() {
   const computerChoice = cs(0, 2);
   switch (computerChoice) {
     case 0:
-      document.getElementById("score").innerHTML =
+      document.getElementById("comp").innerHTML =
         "<h2>Random computer found rock.</h2>";
       break;
     case 1:
-      document.getElementById("score").innerHTML =
+      document.getElementById("comp").innerHTML =
         "<h2>Random computer found paper.</h2>";
       break;
     case 2:
-      document.getElementById("score").innerHTML =
+      document.getElementById("comp").innerHTML =
         "<h2>Random computer found scissors.</h2>";
       break;
   }
   return computerChoice;
 }
 
+async function afterRound() {
+  document.getElementById(
+    "standing"
+  ).textContent = `USER ${userGame} : ${compGame} COMPUTER`;
+  buttonsWrap.appendChild(buttonNext);
+}
+
 // The actual game that gets user choice, calls for computer game, evaluates.
 async function singleRPSgame(u) {
   const userChoice = u === 0 ? "rock" : u === 1 ? "paper" : "scissors";
-  document.getElementById("score").textContent = "";
+  document.getElementById("comp").textContent = "";
+  document.getElementById("announce").textContent = "";
   removeChildNodes("buttonsWrap");
-  const userResult = document.createElement("h4");
-  userResult.innerHTML = `<h2>You selected ${userChoice}.</h2>`;
-  document.getElementById("buttonsWrap").appendChild(userResult);
-  console.log("user choice: " + userChoice);
+  document.getElementById(
+    "instrH2"
+  ).textContent = `You selected ${userChoice}.`;
   await sleep(500);
   const c = await computerPlay();
+  const compChoice = c === 0 ? "rock" : c === 1 ? "paper" : "scissors";
   await sleep(500);
   if (u === c) {
-    console.log("DRAW: user " + userGame + " : " + compGame + " computer");
+    document.getElementById(
+      "announce"
+    ).textContent = `Draw! You both have ${userChoice}.`;
   } else if (u == c + 1 || u == c - 2) {
     ++userGame;
-    console.log("USER WINS: user " + userGame + " : " + compGame + " computer");
+    document.getElementById(
+      "announce"
+    ).textContent = `User wins this round, ${userChoice} beats ${compChoice}`;
   } else {
     ++compGame;
-    console.log(
-      "COMPUTER WINS: user " + userGame + " : " + compGame + " computer"
-    );
+    document.getElementById(
+      "announce"
+    ).textContent = `Computer wins this round, ${compChoice} beats ${userChoice}`;
   }
   if (userGame === 5 || compGame === 5) {
     console.log(
@@ -119,6 +138,6 @@ async function singleRPSgame(u) {
     await sleep(500);
     initScreen();
   } else {
-    playButtons();
+    afterRound();
   }
 }

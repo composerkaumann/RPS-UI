@@ -1,8 +1,8 @@
 {
-  "identifier": "621C3B49-3668-4452-9508-1189CB1E07F0",
-  "localPath": ".",
-  "remotePath": "/home/np592/public_html/learning/RPS",
-  "remoteURL": "https://learning.music.ee/RPS",
-  "server": "music.ee-learning",
-  "usesPublishing": true
+  "identifier" : "621C3B49-3668-4452-9508-1189CB1E07F0",
+  "localPath" : ".",
+  "remotePath" : "\/home\/np592\/public_html\/learning\/rps",
+  "remoteURL" : "https:\/\/learning.music.ee\/RPS",
+  "server" : "music.ee-learning",
+  "usesPublishing" : true
 }
