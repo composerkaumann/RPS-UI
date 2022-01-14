@@ -56,13 +56,13 @@ button {
 }
 
 button:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
   border: 0.5rem solid hsl(45, 100%, 64%);
   background: hsla(71, 100%, 33%, 0.67);
 }
 
 button:active {
-  transform: scale(0.8);
+  transform: scale(0.95);
   border: 0.3rem solid hsl(11, 100%, 64%);
   background: hsla(71, 100%, 33%, 0.5);
 }
@@ -84,7 +84,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .score {

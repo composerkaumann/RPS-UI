@@ -30,8 +30,8 @@ document.addEventListener("keydown", function (event) {
 });
 
 // Remove all chid nodes of a node - function
-function removeChildNodes(n) {
-  const myNode = document.getElementById(n);
+function removeChildNodes(nodeID) {
+  const myNode = document.getElementById(nodeID);
   while (myNode.firstChild) {
     myNode.removeChild(myNode.lastChild);
   }
@@ -63,6 +63,7 @@ async function initScreen() {
   removeChildNodes("buttonsWrap");
   await sleep(500);
   buttonsWrap.appendChild(buttonPlay);
+  document.getElementById("playBtn").textContent = "[N]ew tournament";
 }
 
 // This is starting line for action
@@ -114,7 +115,8 @@ async function afterRound() {
   document.getElementById(
     "standing"
   ).textContent = `USER ${userGame} : ${compGame} COMPUTER`;
-  buttonsWrap.appendChild(buttonNext);
+  buttonsWrap.appendChild(buttonPlay);
+  document.getElementById("playBtn").textContent = "[N]ext round";
 }
 
 // The actual game that gets user choice, calls for computer game, evaluates.
