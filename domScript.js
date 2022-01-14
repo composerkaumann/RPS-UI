@@ -29,8 +29,11 @@ container.appendChild(header);
 const instruct = document.createElement("div");
 instruct.setAttribute("id", "instruct");
 instruct.setAttribute("class", "instruct");
-instruct.textContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const instructH2 = document.createElement("h2");
+instructH2.setAttribute("id", "instrH2");
+instructH2.setAttribute("class", "instrH2");
+
+instruct.appendChild(instructH2);
 
 container.appendChild(instruct);
 // Creating DIV for buttons,
@@ -41,7 +44,7 @@ buttonsWrap.setAttribute("class", "buttonsWrap");
 const buttonPlay = document.createElement("button");
 buttonPlay.setAttribute("id", "playBtn");
 buttonPlay.setAttribute("class", "playBtn");
-buttonPlay.textContent = "[N]ew game";
+buttonPlay.textContent = "[N]ew tournament";
 buttonPlay.addEventListener("click", function () {
   playButtons();
 });
@@ -86,8 +89,6 @@ container.appendChild(buttonsWrap);
 const score = document.createElement("div");
 score.setAttribute("id", "score");
 score.setAttribute("class", "score");
-score.textContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 // Appending score DIV to the container DIV.
 container.appendChild(score);

@@ -41,6 +41,8 @@ function removeChildNodes(n) {
 async function initScreen() {
   userGame = 0;
   compGame = 0;
+  document.getElementById("instrH2").textContent =
+    'Press "New game" or key in [brackets] to start a 5-round tournament.';
   removeChildNodes("buttonsWrap");
   await sleep(500);
   buttonsWrap.appendChild(buttonPlay);
@@ -51,6 +53,8 @@ initScreen();
 
 // User input buttons for single game.
 async function playButtons() {
+  document.getElementById("instrH2").textContent =
+    "Press a button or a key in [brackets] to choose your weapon.";
   removeChildNodes("buttonsWrap");
   await sleep(500);
   buttonsWrap.appendChild(button1);
@@ -60,18 +64,26 @@ async function playButtons() {
 
 // Random with crypto security between x and y.
 async function computerPlay() {
+  document.getElementById("score").innerHTML =
+    "<br /><h2>Wait. A random computer is computing random.</h2>";
+  await sleep(2500);
   const cs = (x, y) =>
     (x +
       ((y - x + 1) * crypto.getRandomValues(new Uint32Array(1))[0]) / 2 ** 32) |
     0;
   const computerChoice = cs(0, 2);
-  console.log("computer choice " + computerChoice);
   switch (computerChoice) {
     case 0:
+      document.getElementById("score").innerHTML =
+        "<h2>Random computer found rock.</h2>";
       break;
     case 1:
+      document.getElementById("score").innerHTML =
+        "<h2>Random computer found paper.</h2>";
       break;
     case 2:
+      document.getElementById("score").innerHTML =
+        "<h2>Random computer found scissors.</h2>";
       break;
   }
   return computerChoice;
@@ -79,13 +91,18 @@ async function computerPlay() {
 
 // The actual game that gets user choice, calls for computer game, evaluates.
 async function singleRPSgame(u) {
-  console.log("user choice " + u);
+  const userChoice = u === 0 ? "rock" : u === 1 ? "paper" : "scissors";
+  document.getElementById("score").textContent = "";
+  removeChildNodes("buttonsWrap");
+  const userResult = document.createElement("h4");
+  userResult.innerHTML = `<h2>You selected ${userChoice}.</h2>`;
+  document.getElementById("buttonsWrap").appendChild(userResult);
+  console.log("user choice: " + userChoice);
   await sleep(500);
   const c = await computerPlay();
   await sleep(500);
   if (u === c) {
     console.log("DRAW: user " + userGame + " : " + compGame + " computer");
-    return;
   } else if (u == c + 1 || u == c - 2) {
     ++userGame;
     console.log("USER WINS: user " + userGame + " : " + compGame + " computer");
