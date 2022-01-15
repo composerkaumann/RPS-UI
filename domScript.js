@@ -53,7 +53,7 @@ buttonsWrap.setAttribute("class", "buttonsWrap");
 //Creating PLAY button.
 const buttonPlay = document.createElement("button");
 buttonPlay.setAttribute("id", "playBtn");
-buttonPlay.addEventListener("click", function () {
+buttonPlay.addEventListener("mousedown", function () {
   playButtons();
 });
 
@@ -61,19 +61,19 @@ buttonPlay.addEventListener("click", function () {
 const button1 = document.createElement("button");
 button1.setAttribute("id", "button1");
 button1.textContent = "[R]ock";
-button1.addEventListener("click", function () {
+button1.addEventListener("mousedown", function () {
   singleRPSgame(0);
 });
 //
 const button2 = document.createElement("button");
 button2.textContent = "[P]aper";
-button2.addEventListener("click", function () {
+button2.addEventListener("mousedown", function () {
   singleRPSgame(1);
 });
 //
 const button3 = document.createElement("button");
 button3.textContent = "[S]cissors";
-button3.addEventListener("click", function () {
+button3.addEventListener("mousedown", function () {
   singleRPSgame(2);
 });
 // Aooending buttons wrap to comtainer DIV.
