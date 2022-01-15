@@ -11,16 +11,28 @@ document.addEventListener("keydown", function (event) {
   if (event.ctrlKey || event.altKey || event.metaKey) {
     return;
   }
-  if (!!document.getElementById("playBtn") && event.key === "n") {
+  if (
+    (!!document.getElementById("playBtn") && event.key === "n") ||
+    event.key === "N"
+  ) {
     playButtons();
   }
-  if (!!document.getElementById("button1") && event.key === "r") {
+  if (
+    (!!document.getElementById("button1") && event.key === "r") ||
+    event.key === "R"
+  ) {
     singleRPSgame(0);
   }
-  if (!!document.getElementById("button1") && event.key === "p") {
+  if (
+    (!!document.getElementById("button1") && event.key === "p") ||
+    event.key === "P"
+  ) {
     singleRPSgame(1);
   }
-  if (!!document.getElementById("button1") && event.key === "s") {
+  if (
+    (!!document.getElementById("button1") && event.key === "s") ||
+    event.key === "S"
+  ) {
     singleRPSgame(2);
   }
 });
