@@ -1,5 +1,9 @@
 # Rock-paper-scissors project assignment by The Odin Project.
 
+### Live preview:
+
+https://learning.music.ee/rps/
+
 ### Project page:
 
 https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/revisiting-rock-paper-scissors
