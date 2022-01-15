@@ -32,6 +32,7 @@ function removeChildNodes(nodeID) {
   }
 }
 
+/**
 function blinkIt() {
   const blinks = document.getElementsByClassName("think");
   for (let i = 0, l = blinks.length; i < l; i++) {
@@ -40,8 +41,8 @@ function blinkIt() {
     blink.style.visibility = visiblity == "visible" ? "hidden" : "visible";
   }
 }
-
 setInterval(blinkIt, 333);
+**/
 
 async function initScreen() {
   userGame = 0;
@@ -74,9 +75,6 @@ async function playButtons() {
 }
 
 async function computerPlay() {
-  document.getElementById("comp").innerHTML =
-    "<h2 class = 'think'>Wait. A random computer is computing random.</h2>";
-  await sleep(3000);
   const cs = (x, y) =>
     (x +
       ((y - x + 1) * crypto.getRandomValues(new Uint32Array(1))[0]) / 2 ** 32) |
@@ -116,7 +114,6 @@ async function singleRPSgame(u) {
   document.getElementById(
     "instrH2"
   ).textContent = `A random human selected ${userChoice}.`;
-  await sleep(500);
   const c = await computerPlay();
   const compChoice = c === 0 ? "rock" : c === 1 ? "paper" : "scissors";
   const verb = (u === 2 && c === 1) || (c === 2 && u === 1) ? "beat" : "beats";
@@ -141,7 +138,7 @@ async function singleRPSgame(u) {
     document.getElementById(
       "standing"
     ).textContent = `HUMAN ${userGame} : ${compGame} COMPUTER`;
-    await sleep(2000);
+    await sleep(1000);
     alert(
       `The tournament has ended.\n\n${winner} won.\n\nSCORE\nHuman ` +
         userGame +
