@@ -1,17 +1,13 @@
 "use strict";
 
-// Global variables for keeping sore, visible to all functions (task: put inside a function)
 let userGame;
 let compGame;
 
-// Timeout function for async functions (await sleep(ms))
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Key event listeners that work only when corresponding button ID is present..
 document.addEventListener("keydown", function (event) {
-  // Check, if ctrl || alt || Mac cmd key is pressed.
   if (event.ctrlKey || event.altKey || event.metaKey) {
     return;
   }
@@ -29,7 +25,6 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Remove all chid nodes of a node - function
 function removeChildNodes(nodeID) {
   const myNode = document.getElementById(nodeID);
   while (myNode.firstChild) {
@@ -37,7 +32,6 @@ function removeChildNodes(nodeID) {
   }
 }
 
-// Makes all elements with certain class blinl
 function blinkIt() {
   const blinks = document.getElementsByClassName("think");
   for (let i = 0, l = blinks.length; i < l; i++) {
@@ -46,10 +40,9 @@ function blinkIt() {
     blink.style.visibility = visiblity == "visible" ? "hidden" : "visible";
   }
 }
-//Sets blink interval
+
 setInterval(blinkIt, 333);
 
-// Startup sceen with "New game" button.
 async function initScreen() {
   userGame = 0;
   compGame = 0;
@@ -66,10 +59,8 @@ async function initScreen() {
   document.getElementById("playBtn").textContent = "[N]ew tournament";
 }
 
-// This is starting line for action
 initScreen();
 
-// User input buttons for single game.
 async function playButtons() {
   document.getElementById("comp").textContent = "";
   document.getElementById("announce").textContent = "";
@@ -82,9 +73,7 @@ async function playButtons() {
   buttonsWrap.appendChild(button3);
 }
 
-// Random with crypto security between x and y.
 async function computerPlay() {
-  // comp.classList.add("think");
   document.getElementById("comp").innerHTML =
     "<h2 class = 'think'>Wait. A random computer is computing random.</h2>";
   await sleep(3000);
@@ -119,7 +108,6 @@ async function afterRound() {
   document.getElementById("playBtn").textContent = "[N]ext round";
 }
 
-// The actual game that gets user choice, calls for computer game, evaluates.
 async function singleRPSgame(u) {
   const userChoice = u === 0 ? "rock" : u === 1 ? "paper" : "scissors";
   document.getElementById("comp").textContent = "";
